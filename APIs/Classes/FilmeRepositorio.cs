@@ -14,7 +14,15 @@ namespace APIs.Classes
 
 		public void Exclui(int id)
 		{
-			listaFilme[id].Excluir();
+			if (!RegistroExiste(id))
+			{
+				throw new Exception("Filme não encontrado");
+            }
+            else
+            {
+
+				listaFilme[id].Excluir();
+			}
 		}
 
 		public void Insere(Filme objeto)

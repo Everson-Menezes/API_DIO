@@ -14,7 +14,14 @@ namespace APIs.Classes
 
 		public void Exclui(int id)
 		{
-			listaSerie[id].Excluir();
+			if (!RegistroExiste(id))
+			{
+				throw new Exception("Série não encontrada");
+			}
+			else
+			{
+				listaSerie[id].Excluir();
+			}
 		}
 
 		public void Insere(Serie objeto)
